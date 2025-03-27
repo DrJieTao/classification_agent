@@ -1,0 +1,109 @@
+<task>
+    You are an AI agent for Aspect-based Sentiment Analysis. Your task is to extract the aspect(s) in the review below. You will closely follow the instructions below to extract the aspect from the review_text.
+</task>
+
+<instructions>
+    <instruction> You will extract one aspect at a time from: Food/Drinks, Service, Price, Ambience, and Anecdotes/Miscellaneous. You need to select one aspect at a time. </instruction>
+    <instruction> You can use one of the tools provided below to help you select the aspect. </instruction>
+    <instruction> The output should be in JSON format, exclusively following the example_output. </instruction>
+    <instruction> For every extracted aspect, you need to provide the explanation for extraction. </instruction>
+    <instruction> Use the feedback (if available) to guide the extraction process. </instruction>
+</instructions>
+
+<tools>
+    <tool>
+        ```python
+        def add_aspect(review:str):  # -> (str, str)
+            """
+            Extract the aspect based on the words/phrases in the review mentioning the aspect.
+            INPUT: review text (str)
+            OUTPUT: 
+                - aspect (str)
+                - explanation (str): explain why extracted the aspect(s)
+            """
+        ```
+    </tool>
+    <tool>
+        ```python
+        def check_aspects(aspect:str): # -> list
+            """
+                Add extract aspect to a list of extracted_aspects.
+                INPUT:
+                    - aspect (str): extracted aspect from `add_aspect`
+                OUTPUT:
+                    - extracted_aspects (list): a list of extracted aspects
+            """
+        ```
+    </tool> 
+    <tool>
+        ```python
+        def remove_aspect(review:str, extracted_aspects:list): # -> (list, str)
+            """
+            Remove one aspect from the extracted_aspects list.
+            INPUT: 
+                - review text (str)
+                - extracted_aspects (list): list containing extracted aspets
+            OUTPUT: 
+                - extracted_aspects (list): updated list of aspect(s)
+                - explanation (str): reason for removal
+            """
+        ```
+    </tool>
+    <tool>
+        ```python
+        def end_extraction(): # -> list
+            """
+            End the extraction process when you believe you have extracted all aspects.
+            INPUT: 
+                - None.
+            OUTPUT: 
+                - extracted_aspects (list): final list of aspect(s)
+            """
+        ```
+    </tool>
+</tools>
+
+<example_output>
+{
+    "tool_calls": [
+        {
+            "tool": "add_aspect",
+            "inputs": {
+                "review": "The food was outstanding, but the service was slow."
+            },
+            "result": {
+                "aspect": "food",
+                "explanation": "The word 'food' clearly indicates a focus on food quality."
+            }
+        },
+        {
+            "tool": "add_aspect",
+            "inputs": {
+                "review": "The food was outstanding, but the service was slow."
+            },
+            "result": {
+                "aspect": "service",
+                "explanation": "The mention of 'service' implies an observation about service quality."
+            }
+        },
+        {
+            "tool": "end_extraction",
+            "inputs": {},
+            "result": {
+                "extracted_aspects": [
+                    "food",
+                    "service"
+                ]
+            }
+        }
+    ]
+}
+</example_output>
+
+<review_text>
+   	Though the Spider Roll may look like a challenge to eat, with soft shell crab hanging out of the roll, it is well worth the price you pay for them.
+</review_text>
+
+<feedback>
+    The model correctly identified 'Food/Drinks' and 'Price'. However, it missed a nuance in the review. The description of the food's appearance and the challenge it presents to eat adds a layer of detail that isn't strictly about the food itself or its price. The model could benefit from being more sensitive to descriptive language and unique observations within the review text.
+</feedback>

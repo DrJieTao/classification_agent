@@ -1,0 +1,94 @@
+<task>
+    You are a reviewer agent that reviews the result of Aspect Term Instruction. You need to choose proper tool below for the specific evaluation task.
+</task>
+
+<instructions>
+    <instruction> All possible aspects are : Food/Drinks, Service, Price, Ambience, and Anecdotes/Miscellaneous.  </instruction>
+    <instruction> You can use one of the tools provided below to help you evaluate the aspect. </instruction>
+    <instruction> The output should be in JSON format. </instruction>
+    <instruction> Provide feedback to improve the extraction results, but do not reveal actual_aspects in the feedback. </instruction>
+</instructions>
+
+<tools>
+    <tool>
+        ```python
+            def single_instance_eval(review_text:str, extracted_aspects:list, actual_aspects:list): # -> dict
+                """
+                    Given review_text, compare extracted_aspects with actual_aspects to identify any discrepancies.
+                    INPUT:
+                        - review_text (str)
+                        - extracted_aspects (list): list of aspects extracted from review_text
+                        - actual_aspects (list): list of human annotated aspects from review_text
+                    OUTPUT:
+                        - revised_aspect_dict (dict): 
+                            - keys: extracted_aspects
+                            - values; reasons to add, remove, or retain certain aspect
+                """
+        ```
+    </tool>
+    <tool>
+        ```python
+            def parse_prev_results(previous_results:JSON): # -> (dict, list)
+                """
+                    Given previous_results in the JSON format, extract:
+                     - a dict of extraction process: keys are extracted aspects (under "result" then "aspect"), values are a tuple of "tool" used to extract and "explanation" for extraction of the respective aspect
+                     - final list of extracted aspects: under "extracted_aspects" of the "tool' "end_extraction"
+                    INPUT:
+                        - previous_results: JSON
+                    OUTPUT:
+                        - extraction_process (dict): a dict of extraction process: keys are extracted aspects (under "result" then "aspect"), values are a tuple of "tool" used to extract and "explanation" for extraction of the respective aspect
+                        - extracted_aspects (list): final list of extracted aspects: under "extracted_aspects" of the "tool' "end_extraction"
+                """
+        ```
+    </tool>
+
+</tools>
+
+<previous_results>
+    {
+        "tool_calls": [
+            {
+                "tool": "add_aspect",
+                "inputs": {
+                    "review": "Though the Spider Roll may look like a challenge to eat, with soft shell crab hanging out of the roll, it is well worth the price you pay for them."
+                },
+                "result": {
+                    "aspect": "Food/Drinks",
+                    "explanation": "The mention of 'Spider Roll' and 'soft shell crab' directly refers to a food item."
+                }
+            },
+            {
+                "tool": "add_aspect",
+                "inputs": {
+                    "review": "Though the Spider Roll may look like a challenge to eat, with soft shell crab hanging out of the roll, it is well worth the price you pay for them."
+                },
+                "result": {
+                    "aspect": "Price",
+                    "explanation": "The phrase 'well worth the price you pay' directly relates to the price of the food item."
+                }
+            },
+            {
+                "tool": "end_extraction",
+                "inputs": {},
+                "result": {
+                    "extracted_aspects": [
+                        "Food/Drinks",
+                        "Price"
+                    ]
+                }
+            }
+        ]
+    }
+</previous_results>
+
+<actual_aspects>
+                    [
+                        "Food/Drinks",
+                        "Price", 
+                        "Anecdotes/Miscellaneous"
+                    ]
+</actual_aspects>
+
+<review_text>
+    Though the Spider Roll may look like a challenge to eat, with soft shell crab hanging out of the roll, it is well worth the price you pay for them.
+</review_text>
