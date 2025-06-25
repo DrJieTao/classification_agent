@@ -5,7 +5,7 @@ This document provides a high-level architectural and data-flow overview of the 
 ---
 ## 1. Tier-1 V2 – Aspect-Based Sentiment Analysis
 
-**Purpose:** Extract aspect-level sentiment (ATE + opinion) from raw text reviews, self-check the extraction quality, and repair errors before results are considered *final*.
+**Purpose:** Extract aspect categories (ATE) from raw text reviews, self-check the extraction quality, and repair errors before results are considered *final*.
 
 ### 1.1 Core Actors
 1. **Loader Factory** – Reads `config.yaml` and instantiates a dataset-specific loader (`HFLoader`, CSV loader, …).  Normalises each record and injects a category taxonomy.
