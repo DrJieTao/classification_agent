@@ -5,7 +5,7 @@ This document provides a high-level architectural and data-flow overview of the 
 ---
 ## 1. Tier-1 V2 – Aspect-Based Sentiment Analysis
 
-**Purpose:** Extract aspect categories (ATE) from raw text reviews, self-check the extraction quality, and repair errors before results are considered *final*.
+**Purpose:** Categorize aspects from raw text reviews, self-check the extraction quality, and repair errors before results are considered *final*.
 
 ### 1.1 Core Actors
 1. **Loader Factory** – Reads `config.yaml` and instantiates a dataset-specific loader (`HFLoader`, CSV loader, …).  Normalises each record and injects a category taxonomy.
@@ -200,6 +200,21 @@ FAILURE HANDLING
 * **Step Traceability** – every LLM/tool call logged in `agent_run_steps`.
 * **Evidence Bundles** – written to `logs/tier2_run_<ts>/evidence/` for offline inspection.
 * **Fallback Validation** – `_execute_art_turn` coerces near-miss JSON into valid schema objects.
+
+---
+## 8. Post-Launch Fixes & Enhancements (2025-06-26)
+
+Recent improvements made while smoke-testing the end-to-end pipeline:
+
+* **Unified Trigger API** – added `run_escalation(db_file, …)` helper and wired `--run_tier2` flag into Tier-1 orchestrator for a seamless hand-off.
+* **Robust Path Resolution** – both analyzer and orchestrator now resolve `tier2_config.yaml` relative to their own location, eliminating CWD-dependent failures.
+* **Idempotent DB Initialisation** – `initialize_database()` ensures *all* Tier-2 tables exist and injects `IF NOT EXISTS`, preventing `sqlite3.OperationalError` on repeated runs.
+* **Legacy-Schema Compatibility** – `EscalationAgent` falls back to `evidence_package` if `trigger_context_json` is absent; `CaseSummary.next_steps_recommendations` now accepts either string or list.
+* **Flexible Planner Coercion** – `_execute_art_turn` auto-converts LLM outputs that use `execution_plan` or `plan_steps` keys into a valid `ExecutionPlan` object.
+* **Summary Generation Stabilised** – added table-creation guard and schema fixes so `SummaryAgent` no longer fails on missing tables or validation mismatches.
+* **Reset/Retry SQL Snippet** – documented a safe rollback script that re-queues in-progress cases and purges only Tier-2 artefacts while preserving Tier-1 data.
+
+These changes collectively harden the Tier-2 workflow against schema drift, path issues, and minor JSON format deviations, enabling reliable re-processing of escalation cases.
 
 ---
 **Last updated:** <!-- KEEP-AUTOMATED-DATE --> 
