@@ -1,0 +1,2 @@
+- using 4 personas: refer to the `/prompts` folder for prompt of each
+- final verdict can be found in the `/results` folder
