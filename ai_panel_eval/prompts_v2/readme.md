@@ -12,6 +12,25 @@ This set is designed systematically to probe the "corners" of the expertise spac
 | **4: The "Full-Stack AI Developer"**| **L3 (Developer)** | **L3 (Developer)** | **L3 (Developer)** | The end-to-end technical quality of the diagnosis and plan. "Is this a well-reasoned and well-designed solution I could build?" |
 | **5: The "Generalist Data Analyst"** | **L1 (User)** | **L1 (User)** | **L2 (Practitioner)** | The clarity and unambiguity of the instructions. "Could I execute this maintenance plan without asking for help?" |
 
+#### **Expertise Level Definitions**
+*   **LLM Expertise Levels:**
+    *   **L1 (User):** Interacts with LLMs through UIs; focuses on basic prompting.
+    *   **L2 (Practitioner):** Uses LLM APIs and advanced prompting techniques; understands different architectures at a high level.
+    *   **L3 (Developer):** Builds applications with and can fine-tune LLMs from scratch.
+    *   **L4 (Expert):** Designs novel LLM architectures and training methodologies.
+*   **Agentic Expertise Levels:**
+    *   **L1 (User):** Understands the outcome of agentic workflows but not their internal mechanics.
+    *   **L2 (Practitioner):** Guides and configures existing agentic systems; understands the observe-think-act loop.
+    *   **L3 (Developer):** Builds custom agents using frameworks like LangChain; understands agent architecture.
+    *   **L4 (Expert):** Designs enterprise-level agent strategies and governance frameworks.
+*   **ABSA Expertise Levels:**
+    *   **L1 (Consumer):** Interprets the results of pre-made ABSA tools but does not build them.
+    *   **L2 (Practitioner):** Defines relevant aspects for a domain and evaluates ABSA model performance.
+    *   **L3 (Developer):** Builds custom ABSA models from scratch for challenging scenarios.
+    *   **L4 (Expert):** Invents new ABSA techniques and publishes novel research in the field.
+
+
+
 ### Rationale:
 
 
