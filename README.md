@@ -3,6 +3,6 @@
 
 ### Usage
 
-- `ate_prompt.md`: prompt with ART specifications for the **Decision Agent**, in XML format.
-- `review_prompt.md`: prompt with ART specifications for the **Review Agent**, in XML format.
-- `./ai_review_panel`: system and persona based prompts for the **AI Committee**, in Markdown format.
+- `ate_prompt.txt`: prompt with ART specifications for the **Decision Agent**, in XML format.
+- `review_prompt.txt`: prompt with ART specifications for the **Review Agent**, in XML format.
+- `./ai_panel_eval`: system and persona based prompts for the **AI Committee**, in Markdown format.
