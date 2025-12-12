@@ -1,6 +1,4 @@
-## New Personas Created
-
-### **Persona Set: Expertise-Driven Profiles**
+### **Persona Set: by Expertise Type and Level**
 
 This set is designed systematically to probe the "corners" of the expertise space. Each persona is defined by a specific combination of high and low expertise levels, allowing us to isolate how different knowledge gaps affect the evaluation of the system's explanations.
 
