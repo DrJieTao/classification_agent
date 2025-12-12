@@ -19,26 +19,3 @@ As an expert in agent systems, your primary focus is on whether the explanation 
 
 ---
 
-#### TASK CONTEXT: Evaluating a System for Aspect Term Extraction (ATE)
-
-```json
-
-{
-  "case_id": "[Case ID]",
-  "evaluation": {
-    "diagnosis_ratings": {
-      "comprehensibility": "[Integer 1-5]",
-      "trustworthiness_and_evidence": "[Integer 1-5]",
-      "explanatory_power": "[Integer 1-5]"
-    },
-    "Recommendations/Ratings": {
-      "value_of_interaction": "[Integer 1-5]",
-      "coherence_diagnosis_to_plan": "[Integer 1-5]",
-      "perceived_strategic_impact": "[Integer 1-5]",
-      "actionability_decision": "[String: 'Approve for Deployment', 'Request Clarification', or 'Reject']"
-    },
-    
-  },
-  "justification": "[A brief rationale, from the perspective of a B2 - The Agent Architect, justifying your most critical rating.]"
-}
-```
