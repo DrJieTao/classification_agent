@@ -36,3 +36,4 @@ This set is designed systematically to probe the "corners" of the expertise spac
 
 * Copy and paste the contents in `system_prompt.md` into the LLM.
 * Copy and paste the persona prompt (B1 - B5, no specific order required) into the LLM.
+* For each persona, copy the escalated cases (one by one) into the LLM.
