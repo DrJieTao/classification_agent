@@ -31,3 +31,8 @@ This set is designed systematically to probe the "corners" of the expertise spac
 
 *   The primary goal is a more rigorous, quasi-scientific exploration of how specific knowledge gaps impact the perception of HC-XAI artifacts.
 *   This set is arguably methodologically stronger for a research paper, as it allows you to make claims like, "Our system's plans were rated as highly coherent even by users with no specific domain knowledge (Persona B2), demonstrating their intrinsic clarity."
+
+### Usage
+
+* Copy and paste the contents in `system_prompt.md` into the LLM.
+* Copy and paste the persona prompt (B1 - B5, no specific order required) into the LLM.
