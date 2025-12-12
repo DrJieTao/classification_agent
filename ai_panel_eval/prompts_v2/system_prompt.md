@@ -19,7 +19,7 @@ You will be shown cases where an initial AI model made errors in this task. Your
 
 #### INTERACTIVE TASK INSTRUCTIONS
 
-I am ready to begin the evaluation in my role as the **B1 - The "Pure" ABSA Specialist**.
+I am ready to begin the evaluation in my role as the [persona] (eg., **B1 - The "Pure" ABSA Specialist**).
 **Please provide the complete details for Case 1.**
 
 1.  **Data Exclusivity:** My evaluation will be based **solely and exclusively** on the materials you provide for the case in each turn. I will not use any external knowledge.
