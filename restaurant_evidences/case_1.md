@@ -1,5 +1,5 @@
 # Escalation Case 1
-
+**Updated**
 ## Diagnosis
 
 Diagnosis details are provided in the sections below (root cause & supporting evidence).
@@ -18,13 +18,13 @@ The system's overall performance is hampered by its poor ability to identify and
 
 
 ## Agent Execution Plan (incl. planned steps)
-
-- Identify specific examples of reviews where the 'service' aspect was incorrectly classified (false positives and false negatives).
-- Analyze the incorrectly classified 'service' reviews to identify common patterns or characteristics.
-- Examine the training data for the 'service' aspect to determine if there is a lack of representative examples or biased labeling.
-- Generate a new prompt-tuning example for a failed case related to the 'service' aspect.
-- Evaluate the impact of the new prompt-tuning example on the system's performance for the 'service' aspect.
-
+**Updated**
+- Identify specific examples of false positives and false negatives for the 'service' aspect.
+- Analyze the characteristics of reviews where 'service' is misclassified (e.g., length, complexity, keywords).
+- Investigate whether the prompt used for aspect extraction is adequately capturing the nuances of 'service' mentions.
+- Generate a new prompt-tuning example for a failed case related to 'service'.
+- Evaluate the performance of the system after applying the prompt tuning.
+- Repeat steps 1-5 for the 'price' and 'anecdotes/miscellaneous' aspects.
 
 ## AI-Generated Performance Summary
 
