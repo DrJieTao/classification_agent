@@ -1,5 +1,5 @@
 # Escalation Case 7
-
+**Updated**
 ## Diagnosis
 
 Diagnosis details are provided in the sections below (root cause & supporting evidence).
@@ -18,13 +18,17 @@ The aspect extraction system struggles to identify instances of "anecdotes/misce
 
 
 ## Agent Execution Plan (incl. planned steps)
-
-- Identify common characteristics of reviews where 'anecdotes/miscellaneous' is missed (False Negatives).
-- Analyze the 'review_agent_feedback' for patterns and insights into the types of errors occurring.
-- Investigate whether the model is overly focused on explicit keywords for 'anecdotes/miscellaneous' and failing to capture implicit mentions.
-- Examine the training data for 'anecdotes/miscellaneous' to assess its diversity and representation.
-- Generate new prompt-tuning examples that specifically address the identified weaknesses in detecting 'anecdotes/miscellaneous'.
+**Updated**
+- Identify common characteristics of reviews where 'anecdotes/miscellaneous' is missed.
+- Analyze the review text and predicted aspects for false negatives related to 'anecdotes/miscellaneous' to identify patterns in the model's errors.
+- Investigate the training data to determine if there is sufficient representation of 'anecdotes/miscellaneous'.
+- Examine the prompt used for aspect extraction to see if it adequately covers 'anecdotes/miscellaneous'.
+- Generate new prompt-tuning examples specifically for 'anecdotes/miscellaneous' to improve the model's ability to identify this aspect.
 - Evaluate the performance of the model after prompt tuning on a held-out dataset.
+- Investigate why 'price' is not being identified at all.
+- Analyze the training data for 'price' to determine if it is adequately represented.
+- Review the prompt for any biases that might prevent the identification of 'price'.
+- Generate new training examples for 'price' to improve coverage.
 
 
 ## AI-Generated Performance Summary
